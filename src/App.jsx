@@ -6,6 +6,7 @@ import Movieview from "./movieview/Movieview";
 import { Routes, Route, Link } from "react-router-dom";
 import Search from "./search/Search";
 import { useState, useEffect } from "react";
+import Notfound from "./notFound/Notfound";
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -38,6 +39,7 @@ function App() {
           }
         />
         <Route path="/movies/:id" element={<Movieview />} />
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </div>
   );

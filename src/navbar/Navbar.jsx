@@ -1,13 +1,15 @@
 import React from "react";
 import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 const Navbar = (props) => {
+  const ref = useRef();
   const navigate = useNavigate();
   const updateSearchText = (e) => {
+    e.preventDefault();
     navigate("/search");
-    console.log(e.target.value);
-    props.setSearchText(e.target.value);
+    props.setSearchText(ref.current.value);
   };
   // const addf = async (props) => {
   //   const resb = await fetch(
@@ -60,9 +62,13 @@ const Navbar = (props) => {
                 placeholder="Search"
                 aria-label="Search"
                 value={props.searchText}
+                ref={ref}
                 onChange={updateSearchText}
               ></input>
-              <button className="btn btn-outline-success" type="submit">
+              <button
+                className="btn btn-outline-success"
+                onClick={updateSearchText}
+              >
                 <Link to="/search">Search</Link>
               </button>
             </form>

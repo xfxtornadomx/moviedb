@@ -47,7 +47,11 @@ const Movieview = () => {
             <div className="row">
               <div className="col-md-3">
                 <img
-                  src={poserUrl}
+                  src={
+                    poserUrl === "https://image.tmdb.org/t/p/w500null"
+                      ? "https://user-images.githubusercontent.com/582516/98960633-6c6a1600-24e3-11eb-89f1-045f55a1e494.png"
+                      : poserUrl
+                  }
                   alt="...."
                   className="img-fluid shadow rounded"
                 />
